@@ -1,0 +1,30 @@
+======================================================================
+
+//crear proyecto en angular
+nest new algo
+
+//iniciar proyecto
+npm run start
+http://localhost:3000
+
+//monta en proyecto desarrollo
+npm run start:dev
+
+//para detener servidor
+ctrl + c
+
+
+//para complilar todo el proyecto
+npm run build
+
+//levantar proyecto en servidor
+nest start
+
+//para depurar si hay basura en codigo
+npm run lint
+======================================================================
+// ayuda para comandos
+nest generate --help
+
+// crear modulo
+nest g mo projects
