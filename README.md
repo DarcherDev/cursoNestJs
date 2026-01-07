@@ -24,6 +24,11 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## NestJs setup
+
+```bash
+$ npm install -g @nestjs/cli
+```
 
 ## Project setup
 
