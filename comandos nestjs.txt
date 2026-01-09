@@ -56,6 +56,11 @@ nest g itc logging        # Interceptor
 # Instalar dependencias necesarias
 npm i class-validator class-transformer
 
+--- DOCUMENTACIÓN (SWAGGER) ---
+
+# Instalar dependencias
+npm install --save @nestjs/swagger
+
 --- PRISMA (ORM) ---
 
 # Instalación
@@ -104,4 +109,3 @@ TABLA DE ALIAS (NEST CLI)
 | provider      | pr    | Generar provider                             |
 | resource      | res   | Generar recurso CRUD completo                |
 | service       | s     | Generar servicio                             |
-|----------------------------------------------------------------------|
