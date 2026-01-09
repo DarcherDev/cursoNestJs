@@ -8,6 +8,14 @@ Este repositorio contiene un proyecto diseñado para aprender los fundamentos de
 
 > **Nota:** En la raíz del proyecto encontrarás un archivo llamado `comandos nestjs.txt` que sirve como "Cheat Sheet" o material de apoyo con los comandos más utilizados durante el desarrollo.
 
+## 🎓 Créditos y Curso de Referencia
+
+Este proyecto fue desarrollado siguiendo el curso de **Fazt Code** en YouTube:
+👉 [Curso de NestJS desde cero](https://www.youtube.com/watch?v=wsqcg5ZtUMM)
+
+**Recomendación especial:**
+En la última sección de este video, se explica detalladamente **cómo desplegar la aplicación a producción** en un entorno real, incluyendo la configuración de dominio y servidor. ¡Muy recomendado si quieres llevar tu proyecto al siguiente nivel!
+
 ## 🚀 Tecnologías y Herramientas
 
 *   **NestJS**: Framework principal.
