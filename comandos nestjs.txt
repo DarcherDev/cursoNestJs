@@ -1,76 +1,107 @@
 ======================================================================
+GUÍA DE COMANDOS NESTJS Y HERRAMIENTAS
+======================================================================
 
-//crear proyecto en angular
-nest new algo
+--- GESTIÓN DEL PROYECTO ---
 
-//iniciar proyecto
+# Crear nuevo proyecto
+nest new nombre-proyecto
+
+# Iniciar servidor (modo producción)
 npm run start
-http://localhost:3000
 
-//monta en proyecto desarrollo
+# Iniciar servidor (modo desarrollo - watch mode)
 npm run start:dev
+# URL por defecto: http://localhost:3000
 
-//para detener servidor
-ctrl + c
+# Detener servidor
+Ctrl + C
 
-
-//para complilar todo el proyecto
+# Compilar proyecto (Build para producción)
 npm run build
 
-//levantar proyecto en servidor
+# Levantar proyecto compilado
 nest start
 
-//para depurar si hay basura en codigo
+# Linting (Buscar errores de estilo/código)
 npm run lint
 
-======================================================================
+--- GENERADORES (NEST CLI) ---
+# Estructura: nest g <tipo> <nombre> [ruta] [opciones]
 
-// para crear validaciones con clases DTOs
-npm i class-validator class-transformer
-
-======================================================================
-//crear elementos
-nest g cl nombreElemento ruta/de/Elemento --no-spec
-nest g cl createUser.dto users/dto --no-spec
-
-// ayuda para comandos
+# Ayuda general
 nest g --help
 
-Usage: nest generate|g [options] <schematic> [name] [path]
+# Elementos comunes
+nest g mo users           # Módulo (Module)
+nest g co users           # Controlador (Controller)
+nest g s users            # Servicio (Service)
+nest g res users          # Recurso CRUD completo (Resource)
 
-Generate a Nest element.
-  Schematics available on @nestjs/schematics collection:
-    ┌───────────────┬─────────────┬──────────────────────────────────────────────┐
-    │ name          │ alias       │ description                                  │
-    │ application   │ application │ Generate a new application workspace         │
-    │ class         │ cl          │ Generate a new class                         │
-    │ configuration │ config      │ Generate a CLI configuration file            │
-    │ controller    │ co          │ Generate a controller declaration            │
-    │ decorator     │ d           │ Generate a custom decorator                  │
-    │ filter        │ f           │ Generate a filter declaration                │
-    │ gateway       │ ga          │ Generate a gateway declaration               │
-    │ guard         │ gu          │ Generate a guard declaration                 │
-    │ interceptor   │ itc         │ Generate an interceptor declaration          │
-    │ interface     │ itf         │ Generate an interface                        │
-    │ library       │ lib         │ Generate a new library within a monorepo     │
-    │ middleware    │ mi          │ Generate a middleware declaration            │
-    │ module        │ mo          │ Generate a module declaration                │
-    │ pipe          │ pi          │ Generate a pipe declaration                  │
-    │ provider      │ pr          │ Generate a provider declaration              │
-    │ resolver      │ r           │ Generate a GraphQL resolver declaration      │
-    │ resource      │ res         │ Generate a new CRUD resource                 │
-    │ service       │ s           │ Generate a service declaration               │
-    │ sub-app       │ app         │ Generate a new application within a monorepo │
-    └───────────────┴─────────────┴──────────────────────────────────────────────┘
+# Otros elementos
+nest g cl nombre users/dto --no-spec  # Clase (útil para DTOs)
+nest g gu auth            # Guard
+nest g pi validation      # Pipe
+nest g mi logger          # Middleware
+nest g f http-exception   # Filter
+nest g itc logging        # Interceptor
 
-Options:
-  -d, --dry-run                      Report actions that would be taken without writing out results.
-  -p, --project [project]            Project in which to generate files.
-  --flat                             Enforce flat structure of generated element.
-  --no-flat                          Enforce that directories are generated.
-  --spec                             Enforce spec files generation. (default: true)
-  --spec-file-suffix [suffix]        Use a custom suffix for spec files.
-  --skip-import                      Skip importing (default: false)
-  --no-spec                          Disable spec files generation.
-  -c, --collection [collectionName]  Schematics collection to use.
-  -h, --help                         Output usage information.
+# Opciones útiles
+--no-spec    # No genera archivos de pruebas (.spec.ts)
+--dry-run    # Simula la creación sin escribir archivos (para probar)
+--flat       # No crea una carpeta nueva para el elemento
+
+--- VALIDACIÓN (DTOs) ---
+
+# Instalar dependencias necesarias
+npm i class-validator class-transformer
+
+--- PRISMA (ORM) ---
+
+# Instalación
+npm install prisma --save-dev
+npm install @prisma/client
+
+# Inicializar Prisma
+npx prisma init
+
+# Crear migración (sincronizar schema.prisma con DB)
+npx prisma migrate dev --name nombre_migracion
+
+# Generar cliente (actualizar tipos después de cambios en schema)
+npx prisma generate
+
+# Abrir interfaz visual de la base de datos
+npx prisma studio
+
+--- DOCKER ---
+
+# Levantar contenedores (en segundo plano)
+docker-compose up -d
+
+# Bajar contenedores
+docker-compose down
+
+# Bajar contenedores y borrar volúmenes (resetear DB)
+docker-compose down -v
+
+======================================================================
+TABLA DE ALIAS (NEST CLI)
+======================================================================
+| Nombre        | Alias | Descripción                                  |
+|---------------|-------|----------------------------------------------|
+| application   | app   | Generar nueva aplicación en monorepo         |
+| class         | cl    | Generar nueva clase                          |
+| controller    | co    | Generar controlador                          |
+| decorator     | d     | Generar decorador personalizado              |
+| filter        | f     | Generar filtro de excepciones                |
+| guard         | gu    | Generar guard                                |
+| interceptor   | itc   | Generar interceptor                          |
+| interface     | itf   | Generar interfaz                             |
+| middleware    | mi    | Generar middleware                           |
+| module        | mo    | Generar módulo                               |
+| pipe          | pi    | Generar pipe                                 |
+| provider      | pr    | Generar provider                             |
+| resource      | res   | Generar recurso CRUD completo                |
+| service       | s     | Generar servicio                             |
+|----------------------------------------------------------------------|
