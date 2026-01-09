@@ -31,6 +31,7 @@ npm i class-validator class-transformer
 ======================================================================
 //crear elementos
 nest g cl nombreElemento ruta/de/Elemento --no-spec
+nest g cl createUser.dto users/dto --no-spec
 
 // ayuda para comandos
 nest g --help
