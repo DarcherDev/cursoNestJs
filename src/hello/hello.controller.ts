@@ -6,10 +6,11 @@ import {
   HttpCode,
   Param,
   ParseIntPipe,
-  ParseBoolPipe, Query,
+  ParseBoolPipe, Query, UseGuards,
 } from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { ValidateUserPipe } from './pipes/validate-user/validate-user.pipe';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 @Controller()
 export class HelloController {
@@ -55,6 +56,7 @@ export class HelloController {
 
   // ejemplo de peticion: http://localhost:3000/greet?name=fazt&age=100
   @Get('greet')
+  @UseGuards(AuthGuard)
   greet(@Query(ValidateUserPipe) query: {name: string, age: number}){
     return  `hello ${query.name}, you are ${query.age} years old`;
   }
